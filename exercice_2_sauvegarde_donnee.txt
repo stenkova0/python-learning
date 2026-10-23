@@ -1,0 +1,10 @@
+animaux = [
+    {"nom": "Rex", "type": "chien"},
+    {"nom": "Minou", "type": "chat"},
+    {"nom": "Buddy", "type": "chien"},
+    {"nom": "Felix", "type": "chat"},
+    {"nom": "Max", "type": "chien"}
+]
+
+print(compter_elements(animaux, "type", "chien"))  # 3
+print(compter_elements(animaux, "type", "chat"))   # 2
