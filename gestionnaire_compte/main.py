@@ -1,5 +1,5 @@
 from compte import Compte
-from gestionnaire import charger_compte, ajouter_compte, chercher_compte, sauvegarde_comptes
+from gestionnaire import charger_compte, ajouter_compte, chercher_compte, sauvegarde_comptes, demander_nombre
 
 liste_comptes = charger_compte("comptes.json")
 
@@ -11,8 +11,7 @@ while True:
     if saisi_Menu == "1":
         print("Veuillez indiquer le nom du titulaire :")
         saisi_Nom_Titulaire = input()
-        print("Veuillez saisir son solde :")
-        saisi_Solde_Titulaire = int(input())
+        saisi_Solde_Titulaire = demander_nombre("Veuillez saisir son solde :")
         ajouter_compte(liste_comptes, saisi_Nom_Titulaire, saisi_Solde_Titulaire)
         print("-----")
 
@@ -23,8 +22,7 @@ while True:
 
         compte_trouver = chercher_compte(liste_comptes, saisi_Nom_Titulaire_Deposer_Montant)
         if compte_trouver != None:
-            print("Veuillez saisir le montant à déposer :")
-            saisi_Solde_Deposer_Montant = int(input())
+            saisi_Solde_Deposer_Montant = demander_nombre("Veuillez saisir le montant à déposer :")
             compte_trouver.deposer(saisi_Solde_Deposer_Montant)
         else:
             print("Ce titulaire n'existe pas")
@@ -38,8 +36,7 @@ while True:
 
         compte_trouver = chercher_compte(liste_comptes, saisi_Nom_Titulaire_Retirer_Montant)
         if compte_trouver != None:
-            print("Veuillez saisir le montant à retirer :")
-            saisi_Solde_Retirer_Montant = int(input())
+            saisi_Solde_Retirer_Montant = demander_nombre("Veuillez saisir le montant à retirer :")
             compte_trouver.retirer(saisi_Solde_Retirer_Montant)
         else:
             print("Ce titulaire n'existe pas")

@@ -16,8 +16,17 @@ def ajouter_compte(liste_compte, titulaire, solde):
 
 def chercher_compte(liste_compte, titulaire):
     for chaque_compte in liste_compte:
-        if chaque_compte.titulaire == titulaire:
+        if chaque_compte.titulaire.lower() == titulaire.lower():
             return chaque_compte
+
+def demander_nombre(message):
+    while True:
+        try:
+            print(message)
+            resultat_demande = int(input())
+            return resultat_demande
+        except ValueError:
+            print("Veuillez saisir un chiffre")
 
 def sauvegarde_comptes(fichier, liste_compte):
     liste_compte_dict = []

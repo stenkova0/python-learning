@@ -5,7 +5,8 @@ class Tache:
         self.fait = fait
         
     def __str__(self):
-        return  f"{self.titre} | {self.priorite} | {self.fait}"
+        fait = "✓ Terminée" if self.fait == True else "✗ En cours"
+        return  f"{self.titre} | {self.priorite} | {fait}"
 
     def terminer(self):
         self.fait = True
