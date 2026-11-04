@@ -112,3 +112,46 @@ def dire_bonjour():
 #version_amelioree()
 
 dire_bonjour()
+
+#---------------------------------------------------
+import time
+
+#print(time.time())
+#time.sleep(2)
+#print(time.time())
+
+def timer_avant(fonction):
+    def nouvelle_fonction():
+        debut = time.time()
+        fonction()
+        fin = time.time()
+        print(fin-debut)
+    return nouvelle_fonction
+
+@timer_avant
+def dire_bonjour():
+    print("Bonjour !")
+
+dire_bonjour()
+
+@timer_avant
+def compter():
+    total = 0
+    for i in range(10000000):
+        total = total + i
+    print(total)
+
+print("-----")
+
+def log_avant(fonction):
+    def nouvelle_fonction():
+        print(f"Appel de {fonction.__name__}")
+        fonction()
+        print(f"{fonction.__name__} terminé")
+    return nouvelle_fonction
+
+@log_avant
+def dire_bonjour():
+    print("Bonjour !")
+
+dire_bonjour()
