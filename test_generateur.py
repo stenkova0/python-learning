@@ -32,3 +32,23 @@ def fibonacci(n):
 
 for nombre in fibonacci(8):
     print(nombre)
+
+
+def etoiles(fonction):
+    def nouvelle_fonction(*args):
+        print("***")
+        fonction(*args)
+        print("***")
+    return nouvelle_fonction
+
+@etoiles
+def dire_bonjour():
+    print("Bonjour !")
+
+dire_bonjour()
+
+@etoiles
+def dire(message):
+    print(message)
+
+dire("Salut")
