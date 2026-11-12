@@ -155,3 +155,9 @@ def dire_bonjour():
     print("Bonjour !")
 
 dire_bonjour()
+
+#-----
+
+nombres = [5, -3, 12, -7, 0, -1, 8]
+nombre_negatif = [nombre for nombre in nombres if nombre < 0]
+print(nombre_negatif)
