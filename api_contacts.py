@@ -13,9 +13,7 @@ def voir_contacts():
 
 @app.get("/contacts/{nom}")
 def chercher_contact(nom: str):
-    contact_trouve = ""
     for chaque_contact in contacts:
         if chaque_contact["nom"] == nom:
-            contact_trouve = "Oui"
             return chaque_contact
     return {"Erreur": "Contact non trouvé"}
